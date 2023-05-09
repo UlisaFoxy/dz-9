@@ -1,25 +1,16 @@
 public class Main {
     public static void main(String[] args) {
         Man man = new Man ("Alex", "Smith", 65, "Andrea", "carpenter" );
-        Woman woman = new Woman("Andrea", "Larson", 40, "Alex", "doctor", "Smith");
-        System.out.println(isRetired(man));
-        System.out.println(isRetired(woman));
+        Woman woman = new Woman("Andrea", "Larson", 40, "Alex", "doctor", "Smith", "Larson");
+        boolean isManRetired = man.getAge() >= 65;
+        boolean isWomanRetired = woman.getAge() >= 60;
+        System.out.println("Man is retired: " + isManRetired);
+        System.out.println("Woman is retired: " + isWomanRetired);
 
-
+        String takePartnerLastName = man.getLastName();
+        System.out.println("Andrea became: " + takePartnerLastName);
     }
 
-    public static boolean isRetired(Person person) {
-        int retirementAge = (person instanceof Woman) ? 60 : 65;
-        return person.getAge() >= retirementAge;
-    }
-
-
-    public static void changeWomanLastName(Man man, Woman woman) {
-        if (!man.getLastName().equals(woman.getLastName())) {
-            woman.setLastName(woman.getPartnerLastName());
-
-        }
-    }
 
 
 }

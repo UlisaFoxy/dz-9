@@ -4,4 +4,20 @@ public class Man extends Person{
     }
 
 
+    @Override
+    public String getPartnerLastName() {
+        return null;
+    }
+
+    @Override
+    public String getMaidenName() {
+        return null;
+    }
+
+    @Override
+    public boolean isRetired() {
+        return getAge() >= 65;
+    }
+
+
 }

@@ -1,4 +1,4 @@
-public class Person {
+public abstract class Person {
     private String firstName;
     private String lastName;
     private Integer age;
@@ -51,12 +51,27 @@ public class Person {
     }
 
 
-    public String getPartnerLastName() {
-        return "";
+    public abstract String getPartnerLastName();
+
+     public abstract String getMaidenName();
+
+    public static void registerPartnership(Person woman) {
+        if (woman.getPartner() == null) {
+        woman.setLastName(woman.getPartnerLastName());
+        }
     }
 
-    public static boolean isRetired(Person person) {
-        int retirementAge = (person instanceof Woman) ? 60 : 65;
-        return person.getAge() >= retirementAge;
+
+    public static void deregisterPartnership(Woman woman, boolean shouldReturnToMaidenName) {
+        if (woman.getPartner() != null) {
+            woman.setPartner(null);
+
+            if (shouldReturnToMaidenName) {
+                woman.setLastName(woman.getMaidenName());
+            }
+        }
+
     }
+
+    public abstract boolean isRetired();
 }
